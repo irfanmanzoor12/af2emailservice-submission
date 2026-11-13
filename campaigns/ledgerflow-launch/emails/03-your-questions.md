@@ -3,7 +3,7 @@ Preview: Who approves what, which setups we've tested, your data, and what we do
 
 Hi {{first_name}},
 
-Since we opened subscriptions, a few questions keep coming up. Here are our honest answers.
+Before you decide, here are answers to some common questions about how we work.
 
 **Who approves the results?**
 Your team does. Our software matches and checks. It does not approve payments, finalise accounts or submit tax returns. Those decisions stay with the people on your team.
@@ -12,13 +12,13 @@ Your team does. Our software matches and checks. It does not approve payments, f
 No. It takes the repetitive matching off their desk, so they can spend more time on review and judgment.
 
 **Which QuickBooks and Excel setups do you work with?**
-Only the ones we have tested. The subscription page lists them. If yours isn't on the list, reply and tell us what you use. We'll tell you plainly whether we have tested it.
+Only the QuickBooks and Excel setups we have tested. The subscription page lists them. If yours isn't on the list, reply and tell us what you use. We'll tell you plainly whether we have tested it.
 
 **How do you handle our data?**
-We'd rather show you than make big promises. Our privacy safeguards summary explains, in plain English, how client data is handled and what safeguards are in place. You'll find it on the subscription page.
+We'd rather show you than make big promises. Our privacy safeguards summary explains, in plain English, how client data is handled and which safeguards we have documented. You'll find it on the subscription page.
 
 **Will this keep us tax-compliant?**
-We can't promise that, and no software should. We help keep your records tidy and traceable, which can make your accountant's review easier. Please take questions about tax rules and regulations to a qualified professional.
+We can't promise that. We help keep your records tidy and traceable, which can make your accountant's review easier. Please take questions about tax rules and regulations to a qualified professional.
 
 **What don't you do?**
 We don't make financial decisions for you. We don't promise zero errors. Instead, we report every exception we find so your team can check it. And we don't sell features that aren't ready. If something is still being built, we'll say so.
