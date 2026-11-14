@@ -331,7 +331,7 @@ Then ask me two quick questions, one at a time, about why some rules belong to o
 
 ### You'll know it worked when
 - 24 people, 8 per group, every address at `@example.com`.
-- Claude refuses to add the Gmail address and quotes `leads/CLAUDE.md`, even though it never opened that file. It loaded on its own when Claude opened a file in `leads/`.
+- Claude refuses to add Sara Ali and quotes `leads/CLAUDE.md`. She is a real person (your friend), not a made-up practice lead, even though her address uses `@example.com`. Claude never opened that file. It loaded on its own when Claude opened a file in `leads/`.
 
 > **Exam note:** When prose instructions get misread, give 2–3 input/output examples, not more prose. A CLAUDE.md inside a subfolder loads when Claude works on files in that folder.
 

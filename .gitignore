@@ -5,3 +5,7 @@
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Secrets and dependencies
+.env*
+node_modules/
