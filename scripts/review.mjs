@@ -5,8 +5,10 @@
 // Example: node scripts/review.mjs campaigns/test-bad
 //
 // Runs `claude -p` with read-only tools, asks for JSON that matches
-// review/findings.schema.json, saves it to review/findings.json and prints
-// a one-line summary.
+// review/findings.schema.json, saves it with the folder name to
+// review/findings.json and prints a one-line summary. If the saved findings
+// are for the same folder, they go into the prompt so the next review
+// reports only new or still-unfixed problems.
 //
 // Exit codes: 0 = no high-severity findings, 1 = at least one high-severity
 // finding, 2 = the review itself could not run (bad folder, claude failed,
@@ -56,7 +58,18 @@ if (emails.length === 0) fail(`no email files found in an emails/ folder under $
 
 const schemaText = readFileSync(schemaPath, "utf8");
 
-const prompt = [
+// Earlier findings for the same folder, if the last review was of this folder.
+let previous = null;
+if (existsSync(outPath)) {
+  try {
+    const saved = JSON.parse(readFileSync(outPath, "utf8"));
+    if (saved.folder === folder && Array.isArray(saved.findings)) previous = saved.findings;
+  } catch {
+    // An unreadable earlier file just means a fresh review.
+  }
+}
+
+const promptLines = [
   `Review every email in ${folder} against brand/voice.md and .claude/rules/emails.md. Report only real problems.`,
   "",
   "The emails are exactly these files. Review only these. Other files in the folder, like plan.md or email-map.md, are not emails:",
@@ -65,7 +78,18 @@ const prompt = [
   "Use the file path exactly as listed above, and the line number where the problem is.",
   "Severity: high = breaks a rule or makes a claim brand/voice.md forbids; medium = likely to mislead or clearly off-voice; low = small wording or style issue.",
   "If an email has no real problems, report nothing for it. If no email has problems, return an empty findings array.",
-].join("\n");
+];
+
+if (previous) {
+  promptLines.push(
+    "",
+    "These are findings from the last review. Report only problems that are new or still not fixed. Don't repeat ones that have been fixed.",
+    "Read each file again to decide. Line numbers may have moved since the last review, so report the current line.",
+    JSON.stringify(previous, null, 2),
+  );
+}
+
+const prompt = promptLines.join("\n");
 
 const result = spawnSync(
   "claude",
@@ -104,13 +128,15 @@ if (!output || !Array.isArray(output.findings)) {
   fail("claude's result had no structured_output with a findings array");
 }
 
-writeFileSync(outPath, JSON.stringify(output, null, 2) + "\n");
+// Save the folder too, so the next review knows whether these findings apply.
+writeFileSync(outPath, JSON.stringify({ folder, findings: output.findings }, null, 2) + "\n");
 
 const count = (s) => output.findings.filter((f) => f.severity === s).length;
 const high = count("high");
 console.log(
   `${folder}: ${emails.length} email(s) reviewed, ${output.findings.length} finding(s) ` +
-    `(${high} high, ${count("medium")} medium, ${count("low")} low). Saved to review/findings.json`,
+    `(${high} high, ${count("medium")} medium, ${count("low")} low)` +
+    `${previous ? `, checked against ${previous.length} earlier finding(s)` : ""}. Saved to review/findings.json`,
 );
 
 process.exit(high > 0 ? 1 : 0);

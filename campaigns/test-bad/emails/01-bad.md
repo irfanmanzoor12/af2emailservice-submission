@@ -1,11 +1,11 @@
-Subject: Last chance: 100% accurate books
+Subject: Last chance: books your team can review
 Preview: This is your last chance to get reconciliation that never makes a mistake.
 
 Hi {{first_name}},
 
 This is a deliberately bad test email. It exists only to prove the automatic review catches problems. Never send it.
 
-LedgerFlow AI reconciles your bank statements with 100% accurate results. Zero errors, guaranteed.
+LedgerFlow AI reconciles your bank statements and checks each match against defined rules. Anything that doesn't match goes into an exception report for your team to review.
 
 Last chance! Prices go up at midnight, so sign up now or miss out for good.
 
