@@ -1,0 +1,32 @@
+{
+  "findings": [
+    {
+      "file": "campaigns/ledgerflow-launch/groups/accounting-firms/emails/03-your-questions.md",
+      "line": 21,
+      "severity": "low",
+      "problem": "This copy is personalised for accounting firms, but it says our tool 'can make your accountant's review easier'. The reader is the accountant, so the line misses its audience and sounds like a template that wasn't fully adapted.",
+      "fix": "Change it to: 'We help keep each client's records tidy and traceable, which can make your team's review easier. Questions about tax rules and regulations still need a qualified professional's judgment.'"
+    },
+    {
+      "file": "campaigns/ledgerflow-launch/groups/accounting-firms/emails/02-how-it-works.md",
+      "line": 16,
+      "severity": "low",
+      "problem": "The 'What this can look like for you' list still speaks to small business owners (line 18) and finance managers (line 20). This version is only for accounting firms, so two of the three bullets don't apply to the reader.",
+      "fix": "Keep only the accounting-firm bullet (line 19), or turn it into a short paragraph, and delete the small-business and finance-team bullets."
+    },
+    {
+      "file": "campaigns/ledgerflow-launch/groups/finance-managers/emails/02-how-it-works.md",
+      "line": 16,
+      "severity": "low",
+      "problem": "The 'What this can look like for you' list still speaks to small business owners (line 18) and accounting firms (line 19). This version is only for finance managers, so two of the three bullets don't apply to the reader.",
+      "fix": "Keep only the finance-team bullet (line 20), or turn it into a short paragraph, and delete the small-business and accounting-firm bullets."
+    },
+    {
+      "file": "campaigns/ledgerflow-launch/groups/small-business-owners/emails/02-how-it-works.md",
+      "line": 16,
+      "severity": "low",
+      "problem": "The 'What this can look like for you' list still speaks to accounting firms (line 19) and finance managers (line 20). This version is only for small business owners, so two of the three bullets don't apply to the reader.",
+      "fix": "Keep only the small-business bullet (line 18), or turn it into a short paragraph, and delete the accounting-firm and finance-team bullets."
+    }
+  ]
+}
