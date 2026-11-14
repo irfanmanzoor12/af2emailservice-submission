@@ -64,27 +64,39 @@ Claude will ask permission before it writes inside `.claude/` or to `.mcp.json`.
 ## Progress tracker
 
 **Part 1 · Plan and write**
-- [ ] 1. Look before you build
-- [ ] 2. Set up your studio
-- [ ] 3. Your brand voice
-- [ ] 4. Plan the campaign
-- [ ] 5. Practice leads
-- [ ] 6. Email rule and sequence
-- [ ] 7. Fresh-eyes review
-- [ ] 8. Your own skill
+- [x] 1. Look before you build
+- [x] 2. Set up your studio
+- [x] 3. Your brand voice
+- [x] 4. Plan the campaign
+- [x] 5. Practice leads
+- [x] 6. Email rule and sequence
+- [x] 7. Fresh-eyes review
+- [x] 8. Your own skill
 
 **Part 2 · Send safely**
-- [ ] 9. Connect Resend
-- [ ] 10. The safety guard
-- [ ] 11. Practice launch
+- [x] 9. Connect Resend
+- [x] 10. The safety guard
+- [x] 11. Practice launch
 
 **Part 3 · Work like a team**
-- [ ] 12. Resume and fork
-- [ ] 13. Automatic review
-- [ ] 14. Package your studio kit
+- [x] 12. Resume and fork
+- [x] 13. Automatic review
+- [x] 14. Package your studio kit
 
 **Stretch**
-- [ ] 15. What customers love
+- [x] 15. What customers love
+
+**Submission notes (2026-11-14)**
+
+All 15 steps were built and passed their fresh-session checks. Things to know:
+
+- **Own brand.** The studio uses the practice brand LedgerFlow AI, not the Kettlebird sample. So the campaign folder is `campaigns/ledgerflow-launch/`, not `campaigns/steep-club-launch/`, and the Step 12 and 15 prompts were adapted to it.
+- **Practice only.** No real emails were sent. Sending went only to the local practice server (`npx emulate@0.12.3 start --service resend`), and the send guard blocks recipients that aren't approved. `.mcp.json` holds only a `re_practice` placeholder key.
+- **Open review findings.** The latest headless review of `campaigns/ledgerflow-launch` (`review/findings.json`) exits with code 0 and has no high or medium findings. It lists 6 low-severity wording issues in the per-group emails (leftover bullets for other groups in email 02, and accountant wording in the accounting-firms email 03). These are not fixed yet.
+- **Test fixture.** `campaigns/test-bad/` is broken on purpose. Step 13 uses it to prove the review catches problems. It is not a real campaign.
+- **Practice data.** The leads in `leads/leads.csv` (all `@example.com`) and the reviews in `notes/reviews/` are made up for practice. They are not real customers.
+- **Separate folders.** Step 14's `studio-kit/` and `client-two/` sit next to this folder and are not part of this repository.
+- **Optional extra not done.** The optional GitHub Actions workflow from Step 13 was not added.
 
 ---
 
